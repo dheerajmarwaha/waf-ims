@@ -1,0 +1,41 @@
+@page "/Entities/Owner"
+
+@inherits IMSBaseScreenComponent<OwnerViewModel>
+
+@using IMS.Shared.Models.Entities
+
+@if (this.ShouldRenderDetailView) {
+	<div class="container-v">
+		<fieldset disabled="@this.IsScreenDisabled">
+			<div class="white-box pt10 ">
+				<div class="row ">
+					<InputString  Label ="Owner Name" ClassesForDiv="col m3" @bind-Target="Model.owner_nm" @ref="defaultBrowseFocusableElementRef" Id="owner_nm"  Required ="true" Maxlength="50"     EnforceTitleCase="IsInsertOrNewMode"/>
+					<InputString  Label ="Contact Number" ClassesForDiv="col m3" @bind-Target="Model.contact_number"  Id="contact_number"  Required ="false" Maxlength="11"     />
+					<InputString  Label ="Email ID" ClassesForDiv="col m3" @bind-Target="Model.email_id"  Id="email_id"  Required ="false" Maxlength="100"     />
+					<InputString  Label ="Address Line" ClassesForDiv="col m3" @bind-Target="Model.address_line"  Id="address_line"  Required ="false" Maxlength="500"     />
+				</div>
+				<div class="row ">
+					<InputInteger  Label ="State ID" ClassesForDiv="col m3" @bind-Target="Model.state_id"  Id="state_id"  Required ="false"      />
+					<  Label ="Pincode" ClassesForDiv="col m3" @bind-Target="Model.pincode"  Id="pincode"  Required ="false"      />
+					<WAFInputDate  Label ="Last Refresh Date" ClassesForDiv="col m3" @bind-Target="Model.last_refresh_dtm"  Id="last_refresh_dtm"  Required ="true"      />
+				</div>
+			</div>
+		</fieldset>
+	</div>
+}
+
+<ListingComponent @ref="ListingComponent" ScreenId="this.ScreenId" Hidden="(this.IsListMode ? false : true)" FnListing="Listing" LoadPresavedQuery="LoadPresavedQuery" EnableSaveSearchFeature="false">
+	<div class="row ">
+		<InputString  Label ="Owner Name" ClassesForDiv="col m3" @bind-Target="QueryModel.owner_nm" @ref="defaultListingFocusableElementRef" Id="owner_nm"   Maxlength="50"     />
+		<InputString  Label ="Contact Number" ClassesForDiv="col m3" @bind-Target="QueryModel.contact_number"  Id="contact_number"   Maxlength="11"     />
+		<InputString  Label ="Email ID" ClassesForDiv="col m3" @bind-Target="QueryModel.email_id"  Id="email_id"   Maxlength="100"     />
+		<InputString  Label ="Address Line" ClassesForDiv="col m3" @bind-Target="QueryModel.address_line"  Id="address_line"   Maxlength="500"     />
+	</div>
+	<div class="row ">
+		<InputInteger  Label ="State ID" ClassesForDiv="col m3" @bind-Target="QueryModel.state_id"  Id="state_id"        />
+		<  Label ="Pincode" ClassesForDiv="col m3" @bind-Target="QueryModel.pincode"  Id="pincode"        />
+		<WAFInputDate  Label ="Last Refresh Date" ClassesForDiv="col m3" @bind-Target="QueryModel.last_refresh_dtm"  Id="last_refresh_dtm"        />
+	</div>
+</ListingComponent>
+
+<!--HASH:109192198251105225253083150177102131243194145-->

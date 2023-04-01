@@ -1,0 +1,49 @@
+@page "/inv/Inventory"
+
+@inherits IMSBaseScreenComponent<InventoryViewModel>
+
+@using IMS.Shared.Models.Inv
+
+@if (this.ShouldRenderDetailView) {
+	<div class="container-v">
+		<fieldset disabled="@this.IsScreenDisabled">
+			<div class="white-box pt10 ">
+				<div class="row ">
+					<InputLookup  Label ="Owner" ClassesForDiv="col m3" @bind-Target="Model.owner_id_lookup" @ref="defaultBrowseFocusableElementRef" Id="owner_id"  Required ="true"  LookupUrl ="Owner/Lookup"    />
+					<InputString  Label ="Make" ClassesForDiv="col m3" @bind-Target="Model.make"  Id="make"  Required ="false" Maxlength="20"     />
+					<InputString  Label ="Serial No." ClassesForDiv="col m3" @bind-Target="Model.serial_no"  Id="serial_no"  Required ="false" Maxlength="50"     />
+					<WAFInputDate  Label ="In Date" ClassesForDiv="col m3" @bind-Target="Model.in_date"  Id="in_date"  Required ="false"      />
+				</div>
+				<div class="row ">
+					<WAFInputDate  Label ="Out Date" ClassesForDiv="col m3" @bind-Target="Model.out_date"  Id="out_date"  Required ="false"      />
+					<InputInteger  Label ="Is Deparment Item" ClassesForDiv="col m3" @bind-Target="Model.is_deparment_item"  Id="is_deparment_item"  Required ="true"      />
+					<InputInteger  Label ="Total Parts Count" ClassesForDiv="col m3" @bind-Target="Model.total_parts_count"  Id="total_parts_count"  Required ="false"      />
+					<InputString  Label ="Remarks" ClassesForDiv="col m3" @bind-Target="Model.remarks"  Id="remarks"  Required ="false" Maxlength="250"     />
+				</div>
+				<div class="row ">
+					<InputLookup  Label ="Program" ClassesForDiv="col m3" @bind-Target="Model.program_id_lookup"  Id="program_id"  Required ="true"  LookupUrl ="Program/Lookup"    />
+				</div>
+			</div>
+		</fieldset>
+	</div>
+}
+
+<ListingComponent @ref="ListingComponent" ScreenId="this.ScreenId" Hidden="(this.IsListMode ? false : true)" FnListing="Listing" LoadPresavedQuery="LoadPresavedQuery" EnableSaveSearchFeature="false">
+	<div class="row ">
+		<InputLookup  Label ="Owner" ClassesForDiv="col m3" @bind-Target="QueryModel.owner_id_lookup" @ref="defaultListingFocusableElementRef" Id="owner_id"    LookupUrl ="Owner/Lookup"   AllowIneffectiveObjectSelection="true" />
+		<InputString  Label ="Make" ClassesForDiv="col m3" @bind-Target="QueryModel.make"  Id="make"   Maxlength="20"     />
+		<InputString  Label ="Serial No." ClassesForDiv="col m3" @bind-Target="QueryModel.serial_no"  Id="serial_no"   Maxlength="50"     />
+		<WAFInputDate  Label ="In Date" ClassesForDiv="col m3" @bind-Target="QueryModel.in_date"  Id="in_date"        />
+	</div>
+	<div class="row ">
+		<WAFInputDate  Label ="Out Date" ClassesForDiv="col m3" @bind-Target="QueryModel.out_date"  Id="out_date"        />
+		<InputInteger  Label ="Is Deparment Item" ClassesForDiv="col m3" @bind-Target="QueryModel.is_deparment_item"  Id="is_deparment_item"        />
+		<InputInteger  Label ="Total Parts Count" ClassesForDiv="col m3" @bind-Target="QueryModel.total_parts_count"  Id="total_parts_count"        />
+		<InputString  Label ="Remarks" ClassesForDiv="col m3" @bind-Target="QueryModel.remarks"  Id="remarks"   Maxlength="250"     />
+	</div>
+	<div class="row ">
+		<InputLookup  Label ="Program" ClassesForDiv="col m3" @bind-Target="QueryModel.program_id_lookup"  Id="program_id"    LookupUrl ="Program/Lookup"   AllowIneffectiveObjectSelection="true" />
+	</div>
+</ListingComponent>
+
+<!--HASH:25025516411318621061521441621802436119954-->

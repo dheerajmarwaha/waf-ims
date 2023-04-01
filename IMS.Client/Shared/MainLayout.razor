@@ -1,0 +1,89 @@
+@inherits Microsoft.AspNetCore.Components.LayoutComponentBase
+@using WAF.Components.Auth
+
+
+@inject WAF.Components.Services.UIService uiService
+@inject WAF.Components.Services.AuthService AuthService
+@inject Microsoft.JSInterop.IJSRuntime JSRunTime;
+
+@if (!AuthService.IsAuthenticated)
+{
+    <div style="margin-left:200px">
+        <WAF.Components.Auth.AuthComponent></WAF.Components.Auth.AuthComponent>
+    </div>
+}
+else
+{
+    <div id="container" class="@(this.uiService.IsLayoutExpanded ? " container-fluid" : "container" ) ">
+
+        <HeaderComponent PackageDisplayText="IMS">
+            <!--[PUT YOUR CHILD CONTENT HERE TO BE SHOWN IN HEADER BAR]-->            
+        </HeaderComponent>
+
+        <NavComponent />
+
+        <ToolbarComponent />
+
+        <div class="main @(this.uiService.IsNavPinned?" ml300":"") @(this.uiService.ShowDebug?"mr300":"") " style="overflow:auto;">
+            <div style="padding:5px 10px 7px; height:calc(100vh - 80px);" class="">
+                @Body
+            </div>
+        </div>
+
+        @if (this.uiService.ShowDebug)
+        {
+            <WAF.Components.DebugJson.DebugJsonComponent />
+        }
+
+
+        <!--A singlton instance of Prompt is kept here. It remains hidden here unless is invoked by the PromptService which should be injected into the individual components who want to show a prompt.-->
+        <PromptComponent />
+    </div>
+    <MessageComponent />
+    <!--Overlay is controlled by Overlay service. Its basic purpose is to capture clicks and then notify all those components who might have opened popups (e.g. dialog, context menu etc)-->
+    <OverlayComponent />
+
+
+}
+
+
+@functions {
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        if (JSRunTime != null)
+        {
+            Console.WriteLine("JS Runtime is not null..");
+            WAF.Components.Utils.InteropUtils.RegisterCurrentJSRunTime(JSRunTime);
+        }
+
+        this.uiService.OnLayoutExpandedChanged += () => this.StateHasChanged();
+        this.uiService.CurrentScreenModeChanged += () => this.StateHasChanged();
+        this.uiService.OnCurrentScreenModelReset += () => this.StateHasChanged();
+
+        this.uiService.OnNavPinToggled += () => this.StateHasChanged();
+        this.uiService.ShowDebugChanged += (bool showDebug) => this.StateHasChanged();
+        //Set app home url here, this url will be used when user clicks on the name of the package.
+        //this.uiService.AppContext.AppHomeURL = "/";
+        this.AuthService.OnUserAuthorizationChanged += OnUserReadyWithRole;
+
+
+    }
+    protected async override Task OnInitializedAsync()
+    {
+        await Task.Delay(10);
+    }
+    protected void OnUserReadyWithRole()
+    {
+        Console.WriteLine("User ready with role: " + this.AuthService.IsAuthenticated);
+        this.StateHasChanged();
+    }
+
+}
+
+
+
+
+<!--HASH:17521273243512412412298713818246216192120171.-->
+
+<!--HASH:461611120824610010141881310184712209177-->

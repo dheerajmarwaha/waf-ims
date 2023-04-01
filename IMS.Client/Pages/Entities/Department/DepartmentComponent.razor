@@ -1,0 +1,27 @@
+@page "/Entities/Department"
+
+@inherits IMSBaseScreenComponent<DepartmentViewModel>
+
+@using IMS.Shared.Models.Entities
+
+@if (this.ShouldRenderDetailView) {
+	<div class="container-v">
+		<fieldset disabled="@this.IsScreenDisabled">
+			<div class="white-box pt10 ">
+				<div class="row ">
+					<  Label ="Dept" ClassesForDiv="col m3" @bind-Target="Model.dept" @ref="defaultBrowseFocusableElementRef" Id="dept"  Required ="true"      />
+					<InputInteger  Label ="Emp ID" ClassesForDiv="col m3" @bind-Target="Model.emp_id"  Id="emp_id"  Required ="true"      />
+				</div>
+			</div>
+		</fieldset>
+	</div>
+}
+
+<ListingComponent @ref="ListingComponent" ScreenId="this.ScreenId" Hidden="(this.IsListMode ? false : true)" FnListing="Listing" LoadPresavedQuery="LoadPresavedQuery" EnableSaveSearchFeature="false">
+	<div class="row ">
+		<  Label ="Dept" ClassesForDiv="col m3" @bind-Target="QueryModel.dept" @ref="defaultListingFocusableElementRef" Id="dept"        />
+		<InputInteger  Label ="Emp ID" ClassesForDiv="col m3" @bind-Target="QueryModel.emp_id"  Id="emp_id"        />
+	</div>
+</ListingComponent>
+
+<!--HASH:1111041012522041720416282531258022211113220-->

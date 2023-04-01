@@ -1,0 +1,49 @@
+@page "/Entities/Program"
+
+@inherits IMSBaseScreenComponent<ProgramViewModel>
+
+@using IMS.Shared.Models.Entities
+
+@if (this.ShouldRenderDetailView) {
+	<div class="container-v">
+		<fieldset disabled="@this.IsScreenDisabled">
+			<div class="white-box pt10 ">
+				<div class="row ">
+					<InputString  Label ="Program Code" ClassesForDiv="col m3" @bind-Target="Model.program_code" @ref="defaultBrowseFocusableElementRef" Id="program_code"  Required ="true" Maxlength="5"     />
+					<InputString  Label ="Program Name" ClassesForDiv="col m3" @bind-Target="Model.program_nm"  Id="program_nm"  Required ="true" Maxlength="50"     EnforceTitleCase="IsInsertOrNewMode"/>
+					<WAFInputDate  Label ="From Date" ClassesForDiv="col m3" @bind-Target="Model.from_date"  Id="from_date"  Required ="true"      />
+					<WAFInputDate  Label ="Till Date" ClassesForDiv="col m3" @bind-Target="Model.till_date"  Id="till_date"  Required ="true"      />
+				</div>
+				<div class="row ">
+					<InputInteger  Label ="Is Active" ClassesForDiv="col m3" @bind-Target="Model.is_active"  Id="is_active"  Required ="true"      />
+					<InputInteger  Label ="Is Frozen" ClassesForDiv="col m3" @bind-Target="Model.is_frozen"  Id="is_frozen"  Required ="true"      />
+					<InputInteger  Label ="District Or City ID" ClassesForDiv="col m3" @bind-Target="Model.district_or_city_id"  Id="district_or_city_id"  Required ="true"      />
+					<InputString  Label ="Location Name" ClassesForDiv="col m3" @bind-Target="Model.location_nm"  Id="location_nm"  Required ="false" Maxlength="100"     />
+				</div>
+				<div class="row ">
+					<InputString  Label ="Remarks" ClassesForDiv="col m3" @bind-Target="Model.remarks"  Id="remarks"  Required ="false" Maxlength="500"     />
+				</div>
+			</div>
+		</fieldset>
+	</div>
+}
+
+<ListingComponent @ref="ListingComponent" ScreenId="this.ScreenId" Hidden="(this.IsListMode ? false : true)" FnListing="Listing" LoadPresavedQuery="LoadPresavedQuery" EnableSaveSearchFeature="false">
+	<div class="row ">
+		<InputString  Label ="Program Code" ClassesForDiv="col m3" @bind-Target="QueryModel.program_code" @ref="defaultListingFocusableElementRef" Id="program_code"   Maxlength="5"     />
+		<InputString  Label ="Program Name" ClassesForDiv="col m3" @bind-Target="QueryModel.program_nm"  Id="program_nm"   Maxlength="50"     />
+		<WAFInputDate  Label ="From Date" ClassesForDiv="col m3" @bind-Target="QueryModel.from_date"  Id="from_date"        />
+		<WAFInputDate  Label ="Till Date" ClassesForDiv="col m3" @bind-Target="QueryModel.till_date"  Id="till_date"        />
+	</div>
+	<div class="row ">
+		<InputInteger  Label ="Is Active" ClassesForDiv="col m3" @bind-Target="QueryModel.is_active"  Id="is_active"        />
+		<InputInteger  Label ="Is Frozen" ClassesForDiv="col m3" @bind-Target="QueryModel.is_frozen"  Id="is_frozen"        />
+		<InputInteger  Label ="District Or City ID" ClassesForDiv="col m3" @bind-Target="QueryModel.district_or_city_id"  Id="district_or_city_id"        />
+		<InputString  Label ="Location Name" ClassesForDiv="col m3" @bind-Target="QueryModel.location_nm"  Id="location_nm"   Maxlength="100"     />
+	</div>
+	<div class="row ">
+		<InputString  Label ="Remarks" ClassesForDiv="col m3" @bind-Target="QueryModel.remarks"  Id="remarks"   Maxlength="500"     />
+	</div>
+</ListingComponent>
+
+<!--HASH:1451281371848121820375230129164127792720087-->

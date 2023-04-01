@@ -1,0 +1,49 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = IMS.Client
+build_property.RootNamespace = IMS.Client
+build_property.ProjectDir = D:\POCs\IMS\IMS.Client\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\POCs\IMS\IMS.Client
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/POCs/IMS/IMS.Client/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Pages/Entities/Department/DepartmentComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50aXRpZXNcRGVwYXJ0bWVudFxEZXBhcnRtZW50Q29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Pages/Entities/Owner/OwnerComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50aXRpZXNcT3duZXJcT3duZXJDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Pages/Entities/Program/ProgramComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW50aXRpZXNcUHJvZ3JhbVxQcm9ncmFtQ29tcG9uZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Pages/Inv/Inventory/InventoryComponent.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW52XEludmVudG9yeVxJbnZlbnRvcnlDb21wb25lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/POCs/IMS/IMS.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 

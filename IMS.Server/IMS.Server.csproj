@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DCCGit\WAF\WAF.Lib\WAF.Lib.csproj" />
+    <ProjectReference Include="..\..\..\DCCGit\WAF\XCS.Lib\XCS.Lib.csproj" />
+    <ProjectReference Include="..\IMS.Client\IMS.Client.csproj" />
+    <ProjectReference Include="..\IMS.Shared\IMS.Shared.csproj" />
+  </ItemGroup>
+
+
+</Project>

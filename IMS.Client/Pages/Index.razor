@@ -1,0 +1,15 @@
+@page "/"
+@inject UIService uiService
+<h1>IMS Home</h1>
+
+
+@code{ 
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        uiService.CurrentScreen = null;
+    }
+
+}
+
+<!--HASH:1691501341461151891531372221097189461473-->
